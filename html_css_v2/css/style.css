@@ -1,0 +1,227 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #ffd3aa;
+}
+
+/* HEADER */
+
+header {
+    background-color: #d2691e;
+    display: flex;
+}
+
+.menu, .logo {
+    flex: 50%;
+    padding: 15px 15px 15px 50px;
+}
+
+.logo {
+    text-align: center;
+    margin-right: 80px;
+}
+
+/* CONTAINER */
+
+.container {
+    border-radius: 18px;
+    width: 94.02985075%;
+    max-width: 1260px;
+    background: #fff;
+    margin: auto;
+}
+
+.main-nav li:last-child {
+    text-align: right;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.banner {
+    display: flex;
+    padding: 20px 0;
+}
+
+.banner img {
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+/* INDEX */
+
+.texting, .pictures {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+
+.texting h2, .pictures h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pictures .catalog {
+    margin: 10px 0;
+}
+
+.pictures .catalog img {
+    width: 100%;
+}
+.pictures .btn-detail{
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #d2691e;
+    border: 1px solid #d2691e;
+    display: block;
+    padding: 15px 50px;
+}
+
+/*CATALOG*/
+
+#catalog.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+
+#service h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* SERVICE */
+
+#service.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+
+#service h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* CONTACTO */
+
+#contact.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+
+#contact h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#contact>p {
+    text-align: justify;
+}
+
+#contact .form-field {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#frm-contact {
+    padding: 15px;
+    display: block;
+}
+
+.form-field {
+    padding: 0 20%;
+}
+
+.form-field label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-field input, .form-field textarea {
+    width: 100%;
+}
+
+#contact .form-field .btn-send {
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #d2691e;
+    border: 1px solid #d2691e;
+    display: block;
+    padding: 15px 50px;
+}
+
+/* FOOTER  */
+
+footer {
+    background-color: #d2691e;
+    display: flex;
+}
+
+footer>div {
+    margin: 10px;
+}
+
+.main-nav {
+    max-width: 50%;
+    padding: 15px 15px 15px 50px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #000;
+}
+
+.main-nav li {
+    display: inline;
+    padding: 5px;
+}
+
+.main-nav li a:hover {
+    font-weight: 700;
+}
+
+.main-nav li a.active {
+    font-weight: 700;
+}
+
+.col-left {
+    flex: 50%;
+}
+
+.col-right {
+    flex: 50%;
+    align-self: center;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+
+@media (max-width: 800px) {
+    .col-right, .col-left {
+        flex: 100%;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .pictures .catalog img {
+        width: 45%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .pictures .catalog img {
+        width: 30%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

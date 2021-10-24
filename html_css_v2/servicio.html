@@ -4,59 +4,68 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Title</title>
+    <title>Servicio</title>
     <link rel="stylesheet" href="css/normalize.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
+    <!-- opciones de menu -->
     <header>
       <div class="menu">
         <ul class="main-nav">
           <li>
-            <a href="#">Inicio</a>
+            <a href="inicio.html">Inicio</a>
           </li>
           <li>
-            <a href="#">Catálogo</a>
+            <a href="catalogo.html">Catálogo</a>
           </li>
           <li>
-            <a href="#">Contacto</a>
+            <a href="contacto.html">Contacto</a>
           </li>
           <li>
-            <a href="#">Servicio</a>
+            <a href="servicio.html" class="active">Servicio</a>
           </li>
         </ul>
       </div>
-      <div class="logo"></div>
-    </header> <!-- opciones de menu -->
+      <div class="logo">
+        <img src="img/logo.png" alt="logo" />
+      </div>
+    </header>
+    <!-- Banner del sitio en la página principal -->
     <div class="banner">
-		<img class="logo" src="img/logo.svg" alt="logo">
-	</div><!-- Banner del sitio en la página principal -->
+      <img src="img/logo.png" alt="logo" />
+    </div>
+    <!-- Contenido -->
     <div class="container">
-        <div id="service" class="col-info">
+        <div id="service" class="info">
             <h1>Servicios</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis error fugiat quo molestias dolore quibusdam esse eveniet iure id cumque nihil expedita, ipsa, quasi dolores tenetur laudantium est eaque architecto.</p>
         </div><!-- inofrmacion de servicio -->        
     </div>
-    <footer>
-        <div class="col-left">
+        <!-- Pie -->
+        <footer>
+          <div class="col col-left">
             <ul class="main-nav">
-                <li>
-                  <a href="#">Inicio</a>
-                </li>
-                <li>
-                  <a href="#">Catálogo</a>
-                </li>
-                <li>
-                  <a href="#">Contacto</a>
-                </li>
-                <li>
-                  <a href="#">Servicio</a>
-                </li>
+              <li>
+                <a href="inicio.html">Inicio</a>
+              </li>
+              <li>
+                <a href="catalogo.html">Catálogo</a>
+              </li>
+              <li>
+                <a href="contacto.html">Contacto</a>
+              </li>
+              <li>
+                <a href="servicio.html" class="active">Servicio</a>
+              </li>
             </ul>
-        </div>
-        <div class="col-right">
-            &copy;2021
-        </div>
-    </footer>
+          </div>
+          <div class="col col-right">&copy;2021</div>
+        </footer>
   </body>
 </html>
