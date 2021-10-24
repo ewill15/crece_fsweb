@@ -48,14 +48,29 @@ header {
     background-color: #fff;
     border-radius: 50%;
 }
+/**/
+a.btn-detail{
+    text-decoration: none;
+    text-transform: capitalize;
+}
+/* ---- Float clearfix ---- */
 
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
 /* INDEX */
 
 .texting, .pictures {
     padding: 10px 45px;
     margin-bottom: 20px;
 }
-
+.texting img{
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+}
 .texting h2, .pictures h2 {
     text-align: center;
     padding: 20px 0;
@@ -71,12 +86,51 @@ header {
 .pictures .btn-detail{
     text-align: center;
     margin: 0 auto;
-    color: #fff;
-    background-color: #d2691e;
+    color: #d2691e;
+    background-color: #fff;
     border: 1px solid #d2691e;
     display: block;
-    padding: 15px 50px;
+    padding: 5px 10px;
+    border-radius: 15px;
 }
+
+.pictures .btn-detail:hover{
+    background-color: #fb8a39;
+    border:1px solid #fb8a39;
+    color:#fff;
+}
+.photo{
+    width: 35%;
+}
+.photo:hover {
+    transform: scale(1.1);
+    background-color: #fb8a39;
+}
+.photo-overlay{
+    padding: 10px;
+}
+.photo-overlay h3{
+    text-align: center;
+}
+/*GALLERY*/
+.gallery{
+    display: flex; 
+    flex-direction: row;
+}
+.gallery .pictures-gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    flex-wrap:wrap;
+}
+.gallery .photo{
+    width: 30%;
+    margin-bottom: 34px;
+}
+.gallery .photo img{
+    max-width: 100%;
+}
+
 
 /*CATALOG*/
 
