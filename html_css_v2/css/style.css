@@ -139,11 +139,36 @@ a.btn-detail{
     margin-bottom: 20px;
 }
 
-#service h2 {
+#catalog h1 {
     text-align: center;
     padding: 20px 0;
 }
 
+#catalog .pictures-gallery .photo-overlay{
+    display: flex;
+    flex-direction: column;
+}
+
+#catalog .pictures-gallery .photo-overlay>a{
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+#catalog .pictures-gallery .photo-overlay>a.btn-detail{
+    margin: 0 auto;
+    color: #d2691e;
+    background-color: #fff;
+    border: 1px solid #d2691e;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+#catalog .pictures-gallery .photo-overlay>a.btn-detail:hover {
+    transform: scale(1.2);
+}
+#catalog .pictures-gallery .photo-overlay>p{
+    text-align: justify;
+}
 /* SERVICE */
 
 #service.info {
