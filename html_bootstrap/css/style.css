@@ -1,0 +1,95 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #ffd3aa;
+}
+.main-content {
+    border-radius: 18px;
+    background: #fff;
+}
+.text-right{
+    text-align: right !important;
+}
+.w-15{
+    width: 15% !important
+}
+.w-35{
+    width: 35% !important
+}
+.banner img{
+    background-color: #fff;
+    border-radius: 50%;
+}
+footer .nav-link{
+    color: rgba(0, 0, 0, 0.55);
+}
+footer .nav-link.active{
+    color:#0a58ca;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #d2691e;
+}
+.btn-outline-chocolate {
+    color: #d2691e;
+    border-color: #d2691e;
+}
+/*begining*/
+#catalog>div div.card{
+    width: 30%;
+}
+/* service */
+#start.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+/* contact */
+#contact.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+/* service */
+#service.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #frm-contact label.text-right{
+        text-align: left !important;
+    }
+    .container .w-15{
+        width: 50% !important;
+    }
+    footer .w-15{
+        width: 75% !important;
+    }
+}
+@media only screen and (max-width: 500px){
+    #catalog>div div.card {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    #catalog>div div.card {
+        width: 100%;
+    }
+    #carouselExampleControls .carousel-inner img.w-50{
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 191px){
+    #service.info {
+        padding: 10px 5px;
+    }
+}
+
+@media only screen and (max-width: 130px){
+    .btn-outline-chocolate{
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
