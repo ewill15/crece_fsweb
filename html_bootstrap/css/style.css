@@ -15,6 +15,10 @@ body {
 .w-35{
     width: 35% !important
 }
+.navbar-light .navbar-nav .show > .nav-link, 
+.navbar-light .navbar-nav .nav-link.active {
+    color: rgb(210 105 30);
+}
 .banner img{
     background-color: #fff;
     border-radius: 50%;
@@ -23,7 +27,7 @@ footer .nav-link{
     color: rgba(0, 0, 0, 0.55);
 }
 footer .nav-link.active{
-    color:#0a58ca;
+    color:#d2691e;
 }
 
 .btn:hover {
@@ -33,6 +37,16 @@ footer .nav-link.active{
 .btn-outline-chocolate {
     color: #d2691e;
     border-color: #d2691e;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #d2691e;
+    border-color: #d2691e;
+}
+/*images carousel*/
+#carouselExampleControls .carousel-item img {
+    height: 200px;
+    object-fit: contain;
 }
 /*begining*/
 #catalog .card{
@@ -53,7 +67,11 @@ footer .nav-link.active{
     padding: 10px 45px;
     margin-bottom: 20px;
 }
-
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .container #start .w-15{
+        width: 35% !important;
+    };
+}
 @media only screen and (max-width: 768px) {
 
     #frm-contact label.text-right{
@@ -61,6 +79,9 @@ footer .nav-link.active{
     }
     .container .w-15{
         width: 50% !important;
+    }
+    #start.info {
+        padding: 10px 5px;
     }
     footer .w-15{
         width: 75% !important;
