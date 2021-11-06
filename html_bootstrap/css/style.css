@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background: #ffd3aa;
 }
+
 .main-content {
     border-radius: 18px;
     background: #fff;
@@ -19,6 +20,9 @@ body {
 .navbar-light .navbar-nav .nav-link.active {
     color: rgb(210 105 30);
 }
+.nav-link:hover, .nav-link:focus {
+    color: #d2691e;
+}
 .banner img{
     background-color: #fff;
     border-radius: 50%;
@@ -34,6 +38,10 @@ footer .nav-link.active{
     color: #fff;
     background: #d2691e;
 }
+.btn-primary:hover {
+    background: #f0904c;
+    border-color: #f0904c;
+}
 .btn-outline-chocolate {
     color: #d2691e;
     border-color: #d2691e;
@@ -48,9 +56,31 @@ footer .nav-link.active{
     height: 200px;
     object-fit: contain;
 }
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*catalog*/
+.card-img, .card-img-top {
+    height: 203px;
+    object-fit: contain;
+}
+/*contact*/
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea.form-control:focus {
+    background-color: #f5f5f5;
+}
+#frm-contact span.input-group-text{
+    height: 38px;
+}
 /*begining*/
 #catalog .card{
     width: 30%;
+}
+#catalog iframe[src^="https://www.youtube.com/"]{
+    width: 75%;
+    height: 300px;
 }
 /* service */
 #start.info {
@@ -61,6 +91,20 @@ footer .nav-link.active{
 #contact.info {
     padding: 10px 45px;
     margin-bottom: 20px;
+}
+/*icons*/
+.fa-facebook:hover{
+    color:#0061A9;
+}
+.fa-instagram:hover{
+    background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    border-radius: 50px;
+}
+.fa-twitter:hover{
+    color: #1DA1F2;
+}
+.fa-whatsapp:hover{
+    color:#25d366;
 }
 /* service */
 #service.info {
