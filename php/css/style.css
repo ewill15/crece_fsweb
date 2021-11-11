@@ -1,0 +1,160 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #ffd3aa;
+}
+
+.main-content {
+    border-radius: 18px;
+    background: #fff;
+}
+.text-right{
+    text-align: right !important;
+}
+.w-15{
+    width: 15% !important
+}
+.w-35{
+    width: 35% !important
+}
+.navbar-light .navbar-nav .show > .nav-link, 
+.navbar-light .navbar-nav .nav-link.active {
+    color: rgb(210 105 30);
+}
+.nav-link:hover, .nav-link:focus {
+    color: #d2691e;
+}
+.banner img{
+    background-color: #fff;
+    border-radius: 50%;
+}
+footer .nav-link{
+    color: rgba(0, 0, 0, 0.55);
+}
+footer .nav-link.active{
+    color:#d2691e;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #d2691e;
+}
+.btn-primary:hover {
+    background: #f0904c;
+    border-color: #f0904c;
+}
+.btn-outline-chocolate {
+    color: #d2691e;
+    border-color: #d2691e;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #d2691e;
+    border-color: #d2691e;
+}
+/*images carousel*/
+#carouselExampleControls .carousel-item img {
+    height: 200px;
+    object-fit: contain;
+}
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*catalog*/
+.card-img, .card-img-top {
+    height: 203px;
+    object-fit: contain;
+}
+/*contact*/
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea.form-control:focus {
+    background-color: #f5f5f5;
+}
+#frm-contact span.input-group-text{
+    height: 38px;
+}
+/*begining*/
+#catalog .card{
+    width: 30%;
+}
+#catalog iframe[src^="https://www.youtube.com/"]{
+    width: 75%;
+    height: 300px;
+}
+/* service */
+#start.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+/* contact */
+#contact.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+/*icons*/
+.fa-facebook:hover{
+    color:#0061A9;
+}
+.fa-instagram:hover{
+    background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    border-radius: 50px;
+}
+.fa-twitter:hover{
+    color: #1DA1F2;
+}
+.fa-whatsapp:hover{
+    color:#25d366;
+}
+/* service */
+#service.info {
+    padding: 10px 45px;
+    margin-bottom: 20px;
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .container #start .w-15{
+        width: 35% !important;
+    };
+}
+@media only screen and (max-width: 768px) {
+
+    #frm-contact label.text-right{
+        text-align: left !important;
+    }
+    .container .w-15{
+        width: 50% !important;
+    }
+    #start.info {
+        padding: 10px 5px;
+    }
+    footer .w-15{
+        width: 75% !important;
+    }
+}
+@media only screen and (max-width: 500px){
+    #catalog .card {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    #catalog .card {
+        width: 100%;
+    }
+    #carouselExampleControls .carousel-inner img.w-50{
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 191px){
+    #service.info {
+        padding: 10px 5px;
+    }
+}
+
+@media only screen and (max-width: 130px){
+    .btn-outline-chocolate{
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
