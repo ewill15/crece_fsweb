@@ -20,7 +20,12 @@
         Cras vestibulum, velit in dapibus semper, augue est dignissim lacus, 
         sed aliquet purus orci in mi. Vivamus et lobortis urna.
         </p>";
-      $menu = array('Inicio','Catálogo','Contacto','Servicio');
+      $menu = array(
+        array("text"=>'Inicio',"page"=>"inicio.php"),
+        array("text"=>'Catálogo',"page"=>"catalogo.php"),
+        array("text"=>'Contacto',"page"=>"contacto.php"),
+        array("text"=>'Servicio',"page"=>"servicio.php")
+      );
     ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -53,26 +58,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="inicio.php">
-                  <?php echo $menu[0]?>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catalogo.php">
-                  <?php echo $menu[1]?>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contacto.php">
-                <?php echo $menu[2]?>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="servicio.php">
-                <?php echo $menu[3]?>
-                </a>
-              </li>
+            <?php 
+              for ($i=0; $i < 4; $i++) { 
+                if($i==0){
+                  echo "<li class='nav-item active'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }else{
+                  echo "<li class='nav-item'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }
+                
+              }
+            ?>
             </ul>
           </div>
         </div>
@@ -107,18 +106,19 @@
         <div class="col-2"></div>
         <div class="col-2">
           <ul class="list-unstyled text-small">
-            <li class="nav-item">
-              <a class="nav-link w-25" href="inicio.php"><?php echo $menu[0]?></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link w-25" href="catalogo.php"><?php echo $menu[1]?></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link w-25 active" href="contacto.php"><?php echo $menu[2]?></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link w-25" href="servicio.php"><?php echo $menu[3]?></a>
-            </li>
+            <?php 
+              for ($i=0; $i < 4; $i++) { 
+                if($i==0){
+                  echo "<li class='nav-item active'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }else{
+                  echo "<li class='nav-item'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }
+              }
+            ?>
           </ul>
         </div>
         <div class="col-5">
@@ -142,6 +142,7 @@
         </div>
       </div>
     </footer>
+
     <script src="js/bootstrap.js"></script>
   </body>
 </html>

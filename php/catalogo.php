@@ -3,20 +3,48 @@
   <head>
     <?php 
       $titulo = "Catálogo";
-      $menu = array('Inicio','Catálogo','Contacto','Servicio');
+      $menu = array(
+        array("text"=>'Inicio',"page"=>"inicio.php"),
+        array("text"=>'Catálogo',"page"=>"catalogo.php"),
+        array("text"=>'Contacto',"page"=>"contacto.php"),
+        array("text"=>'Servicio',"page"=>"servicio.php")
+      );
       $catalogo = array(
-        array("titulo"=>"Cacao","descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,
-        tellus ac cursus commodo."),
-        array("titulo"=>"Grageas chocolate","descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,
-                  tellus ac cursus commodo."),
-        array("titulo"=>"Helado chocolate","descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,
-                  tellus ac cursus commodo."),
-        array("titulo"=>"Paleta chocolate","descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,
-                  tellus ac cursus commodo."),
-        array("titulo"=>"Tabletas chocolate","descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,
-                  tellus ac cursus commodo."),
-        array("titulo"=>"Variedad de productos","descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,
-                  tellus ac cursus commodo.")
+        array(
+          "titulo"=>"Cacao",
+          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,tellus ac cursus commodo.",
+          "image"=>"img/cocoa.svg",
+          "alt"=>"cacao"
+        ),
+        array(
+          "titulo"=>"Grageas chocolate",
+          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,tellus ac cursus commodo.",
+          "image"=>"img/grageas.jpeg",
+          "alt"=>"grageas chocolate"
+        ),
+        array(
+          "titulo"=>"Helado chocolate",
+          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,tellus ac cursus commodo.",
+          "image"=>"img/helado.png",
+          "alt"=>"helado chocolate"
+        ),
+        array(
+          "titulo"=>"Paleta chocolate",
+          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.",
+          "image"=>"img/paleta.png",
+          "alt"=>"paleta chocolate"
+        ),
+        array(
+          "titulo"=>"Tabletas chocolate",
+          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.",
+          "image"=>"img/tabletas.png",
+          "alt"=>"tabletas chocolate"),
+        array(
+          "titulo"=>"Variedad de productos",
+          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.",
+          "image"=>"img/treats.svg",
+          "alt"=>"varios"
+        )
       );
       $btn_detalle = "Ver Detalle";
     ?>
@@ -51,20 +79,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="inicio.php">
-                  <?php echo $menu[0] ?>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catalogo.php"><?php echo $menu[1] ?></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contacto.php"><?php echo $menu[2] ?></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="servicio.php"><?php echo $menu[3] ?></a>
-              </li>
+            <?php 
+              for ($i=0; $i < 4; $i++) { 
+                if($i==0){
+                  echo "<li class='nav-item active'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }else{
+                  echo "<li class='nav-item'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }
+                
+              }
+            ?>
             </ul>
           </div>
         </div>
@@ -93,84 +121,18 @@
         </div>
         <section id="catalog-b">
           <div class="d-flex flex-row justify-content-around flex-wrap">
-            <div class="card my-3">
-              <img class="card-img-top" src="img/cocoa.svg" alt="cacao" />
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $catalogo[0]['titulo']?></h5>
-                <p class="card-text">
-                  <?php echo $catalogo[0]['descripcion']?>
-                </p>
-                <a href="#" class="btn btn-outline-chocolate d-block text-center">
-                  <?php echo $btn_detalle ?>
-                </a>
-              </div>
-            </div>
-            <div class="card my-3">
-              <img
-                class="card-img-top"
-                src="img/grageas.jpeg"
-                alt="grageas chocolate "
-              />
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $catalogo[1]['titulo']?></h5>
-                <p class="card-text">
-                  <?php echo $catalogo[1]['descripcion']?>
-                </p>
-                <a href="#" class="btn btn-outline-chocolate d-block text-center"><?php echo $btn_detalle ?></a>
-              </div>
-            </div>
-            <div class="card my-3">
-              <img
-                class="card-img-top"
-                src="img/helado.png"
-                alt="helado chocolate "
-              />
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $catalogo[2]['titulo']?></h5>
-                <p class="card-text">
-                  <?php echo $catalogo[2]['descripcion']?>
-                </p>
-                <a href="#" class="btn btn-outline-chocolate d-block text-center"><?php echo $btn_detalle ?></a>
-              </div>
-            </div>
-            <div class="card my-3">
-              <img
-                class="card-img-top"
-                src="img/paleta.png"
-                alt="paleta chocolate "
-              />
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $catalogo[3]['titulo']?></h5>
-                <p class="card-text">
-                  <?php echo $catalogo[3]['descripcion']?>
-                </p>
-                <a href="#" class="btn btn-outline-chocolate d-block text-center"><?php echo $btn_detalle ?></a>
-              </div>
-            </div>
-            <div class="card my-3">
-              <img
-                class="card-img-top"
-                src="img/tabletas.png"
-                alt="tabletas chocolate "
-              />
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $catalogo[4]['titulo']?></h5>
-                <p class="card-text">
-                  <?php echo $catalogo[4]['descripcion']?>
-                </p>
-                <a href="#" class="btn btn-outline-chocolate d-block text-center"><?php echo $btn_detalle ?></a>
-              </div>
-            </div>
-            <div class="card my-3">
-              <img class="card-img-top" src="img/treats.svg" alt="varios" />
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $catalogo[5]['titulo']?></h5>
-                <p class="card-text">
-                  <?php echo $catalogo[5]['descripcion']?>
-                </p>
-                <a href="#" class="btn btn-outline-chocolate d-block text-center"><?php echo $btn_detalle ?></a>
-              </div>
-            </div>
+            <?php 
+              for ($i=0; $i < 6 ; $i++) {
+                echo "<div class='card my-3'>
+                  <img class='card-img-top' src='".$catalogo[$i]['image']."' alt='".$catalogo[$i]['alt']."'>
+                  <div class='card-body'>
+                    <h5 class='card-title'>".$catalogo[$i]['titulo']."</h5>
+                    <p class='card-text'>".$catalogo[$i]['descripcion']."</p>
+                    <a href='#' class='btn btn-outline-chocolate d-block text-center'>$btn_detalle</a>
+                  </div>
+                </div>";
+              }
+            ?>
           </div>
         </section>
       </div>
@@ -181,18 +143,19 @@
         <div class="col-2"></div>
         <div class="col-2">
           <ul class="list-unstyled text-small">
-            <li class="nav-item">
-              <a class="nav-link w-25" href="inicio.php"><?php echo $menu[0] ?></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link w-25" href="catalogo.php"><?php echo $menu[1] ?></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link w-25 active" href="contacto.php"><?php echo $menu[2] ?></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link w-25" href="servicio.php"><?php echo $menu[3] ?></a>
-            </li>
+            <?php 
+              for ($i=0; $i < 4; $i++) { 
+                if($i==0){
+                  echo "<li class='nav-item active'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }else{
+                  echo "<li class='nav-item'>
+                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  </li>";
+                }
+              }
+            ?>
           </ul>
         </div>
         <div class="col-5">
@@ -216,6 +179,7 @@
         </div>
       </div>
     </footer>
+    
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.js"></script>
   </body>
