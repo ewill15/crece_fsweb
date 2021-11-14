@@ -105,8 +105,8 @@
             <?php 
               for ($i=0; $i < 4; $i++) { 
                 if($i==0){
-                  echo "<li class='nav-item active'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  echo "<li class='nav-item'>
+                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
                   </li>";
                 }else{
                   echo "<li class='nav-item'>
@@ -203,8 +203,8 @@
             <?php 
               for ($i=0; $i < 4; $i++) { 
                 if($i==0){
-                  echo "<li class='nav-item active'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+                  echo "<li class='nav-item'>
+                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
                   </li>";
                 }else{
                   echo "<li class='nav-item'>
