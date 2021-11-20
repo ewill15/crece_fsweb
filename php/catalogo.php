@@ -47,6 +47,48 @@
         )
       );
       $btn_detalle = "Ver Detalle";
+      $mostrar_video = false;
+      function image_catalogs($nro_images=1,$imagenes=[],$btn_descarga='Ver Detalle'){
+        for ($i=0; $i < $nro_images ; $i++) {
+          echo "<div class='card my-3'>
+            <img class='card-img-top' src='".$imagenes[$i]['image']."' alt='".$imagenes[$i]['alt']."'>
+            <div class='card-body'>
+              <h5 class='card-title'>".$imagenes[$i]['titulo']."</h5>
+              <p class='card-text'>".$imagenes[$i]['descripcion']."</p>
+              <a href='#' class='btn btn-outline-chocolate d-block text-center'>$btn_descarga</a>
+            </div>
+          </div>";
+        }
+      }
+
+      function menu_options($menu=[],$menu_active=0){
+        for ($i=0; $i < count($menu); $i++) { 
+          if($i==$menu_active){
+            echo "<li class='nav-item'>
+            <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+            </li>";
+          }else{
+            echo "<li class='nav-item'>
+            <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+            </li>";
+          }
+        }
+      }
+
+      function social_media(){
+        echo "<div class='social-facebook fa-2x'>
+          <i class='fab fa-facebook'></i>
+        </div>
+        <div class='social-instagram fa-2x'>
+          <i class='fab fa-instagram'></i>
+        </div>
+        <div class='social-twitter fa-2x'>
+          <i class='fab fa-twitter'></i>
+        </div>
+        <div class='social-whatsapp fa-2x'>
+          <i class='fab fa-whatsapp'></i>
+        </div>";
+      }
     ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -80,18 +122,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <?php 
-              for ($i=0; $i < 4; $i++) { 
-                if($i==1){
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }else{
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }
-                
-              }
+              menu_options($menu,1);
             ?>
             </ul>
           </div>
@@ -116,22 +147,15 @@
     <div class="container main-content py-3">
       <h1><?php echo $titulo ?></h1>
       <div id="catalog" class="info">
+        <?php if($mostrar_video){ ?>
         <div class="embed-responsive embed-responsive-16by9 text-center">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-h0VFmyAZxc" allowfullscreen=""></iframe>
         </div>
+        <?php } ?>
         <section id="catalog-b">
           <div class="d-flex flex-row justify-content-around flex-wrap">
             <?php 
-              for ($i=0; $i < 6 ; $i++) {
-                echo "<div class='card my-3'>
-                  <img class='card-img-top' src='".$catalogo[$i]['image']."' alt='".$catalogo[$i]['alt']."'>
-                  <div class='card-body'>
-                    <h5 class='card-title'>".$catalogo[$i]['titulo']."</h5>
-                    <p class='card-text'>".$catalogo[$i]['descripcion']."</p>
-                    <a href='#' class='btn btn-outline-chocolate d-block text-center'>$btn_detalle</a>
-                  </div>
-                </div>";
-              }
+              image_catalogs(count($catalogo),$catalogo);
             ?>
           </div>
         </section>
@@ -144,34 +168,15 @@
         <div class="col-2">
           <ul class="list-unstyled text-small">
             <?php 
-              for ($i=0; $i < 4; $i++) { 
-                if($i==1){
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }else{
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }
-              }
+              menu_options($menu,1);
             ?>
           </ul>
         </div>
         <div class="col-5">
           <div class="d-flex justify-content-around">
-            <div class="social-facebook fa-2x">
-              <i class="fab fa-facebook"></i>
-            </div>
-            <div class="social-instagram fa-2x">
-              <i class="fab fa-instagram"></i>
-            </div>
-            <div class="social-twitter fa-2x">
-              <i class="fab fa-twitter"></i>
-            </div>
-            <div class="social-whatsapp fa-2x">
-              <i class="fab fa-whatsapp"></i>
-            </div>
+            <?php 
+              social_media();
+            ?>
           </div>          
         </div>
         <div class="col-3">
@@ -180,7 +185,6 @@
       </div>
     </footer>
     
-    <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.js"></script>
   </body>
 </html>

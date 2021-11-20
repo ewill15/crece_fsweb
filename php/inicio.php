@@ -70,6 +70,63 @@
         array("image"=>"img/helado.png","alt"=>"helado chocolate"),
         array("image"=>"img/tabletas.png","alt"=>"tabletas chocolate")
       );
+
+      function menu_options($menu=[],$menu_active=0){
+        for ($i=0; $i < count($menu); $i++) { 
+          if($i==$menu_active){
+            echo "<li class='nav-item'>
+            <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+            </li>";
+          }else{
+            echo "<li class='nav-item'>
+            <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+            </li>";
+          }
+        }
+      }
+
+      function image_catalogs($nro_images=0,$imagenes=[],$btn_descarga='descargar'){
+        for ($i=0; $i < $nro_images ; $i++) {
+          $random_image = rand(0,5);
+          echo "<div class='card my-3'>
+            <img class='card-img-top' src='".$imagenes[$random_image]['image']."' alt='".$imagenes[$random_image]['alt']."'>
+            <div class='card-body'>
+              <h5 class='card-title'>".$imagenes[$random_image]['titulo']."</h5>
+              <p class='card-text'>".$imagenes[$random_image]['descripcion']."</p>
+              <a href='#' class='btn btn-outline-chocolate d-block text-center'>$btn_descarga</a>
+            </div>
+          </div>";
+        }
+      }
+
+      function image_carousel($img_carousel,$img_to_show=3)
+      {
+        for ($i=0; $i < $img_to_show; $i++) { 
+          if($i==0){
+            echo "<div class='carousel-item active'>
+            <img class='d-block w-50 mx-auto' src='".$img_carousel[$i]['image']."' alt='".$img_carousel[$i]['alt']."'>
+          </div>";
+          }else{
+            echo "<div class='carousel-item'>
+            <img class='d-block w-50 mx-auto' src='".$img_carousel[$i]['image']."' alt='".$img_carousel[$i]['alt']."'>
+          </div>";
+          }
+        }
+      }
+      function social_media(){
+        echo "<div class='social-facebook fa-2x'>
+          <i class='fab fa-facebook'></i>
+        </div>
+        <div class='social-instagram fa-2x'>
+          <i class='fab fa-instagram'></i>
+        </div>
+        <div class='social-twitter fa-2x'>
+          <i class='fab fa-twitter'></i>
+        </div>
+        <div class='social-whatsapp fa-2x'>
+          <i class='fab fa-whatsapp'></i>
+        </div>";
+      }
     ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,20 +159,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-            <?php 
-              for ($i=0; $i < 4; $i++) { 
-                if($i==0){
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }else{
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }
-                
-              }
-            ?>
+              <?php 
+                menu_options($menu);
+              ?>
             </ul>
           </div>
         </div>
@@ -149,17 +195,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <?php 
-              for ($i=0; $i < 3; $i++) { 
-                if($i==0){
-                  echo "<div class='carousel-item active'>
-                  <img class='d-block w-50 mx-auto' src='".$img_carousel[$i]['image']."' alt='".$img_carousel[$i]['alt']."'>
-                </div>";
-                }else{
-                  echo "<div class='carousel-item'>
-                  <img class='d-block w-50 mx-auto' src='".$img_carousel[$i]['image']."' alt='".$img_carousel[$i]['alt']."'>
-                </div>";
-                }
-              }
+              image_carousel($img_carousel);              
             ?>
             
           </div>
@@ -177,16 +213,7 @@
         <section id="catalog">
           <div class="d-flex flex-row justify-content-around flex-wrap">
             <?php 
-              for ($i=0; $i < 6 ; $i++) {
-                echo "<div class='card my-3'>
-                  <img class='card-img-top' src='".$catalogo[$i]['image']."' alt='".$catalogo[$i]['alt']."'>
-                  <div class='card-body'>
-                    <h5 class='card-title'>".$catalogo[$i]['titulo']."</h5>
-                    <p class='card-text'>".$catalogo[$i]['descripcion']."</p>
-                    <a href='#' class='btn btn-outline-chocolate d-block text-center'>$btn_descarga</a>
-                  </div>
-                </div>";
-              }
+              image_catalogs(2,$catalogo,'Descargar');
             ?>
           </div>
         </section>
@@ -201,34 +228,15 @@
         <div class="col-2">
           <ul class="list-unstyled text-small">
             <?php 
-              for ($i=0; $i < 4; $i++) { 
-                if($i==0){
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }else{
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }
-              }
+              menu_options($menu);
             ?>
           </ul>
         </div>
         <div class="col-5">
           <div class="d-flex justify-content-around">
-            <div class="social-facebook fa-2x">
-              <i class="fab fa-facebook"></i>
-            </div>
-            <div class="social-instagram fa-2x">
-              <i class="fab fa-instagram"></i>
-            </div>
-            <div class="social-twitter fa-2x">
-              <i class="fab fa-twitter"></i>
-            </div>
-            <div class="social-whatsapp fa-2x">
-              <i class="fab fa-whatsapp"></i>
-            </div>
+            <?php               
+              social_media();
+            ?>
           </div>          
         </div>
         <div class="col-3">

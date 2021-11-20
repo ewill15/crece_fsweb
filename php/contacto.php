@@ -17,6 +17,35 @@
         array("text"=>'Contacto',"page"=>"contacto.php"),
         array("text"=>'Servicio',"page"=>"servicio.php")
       );
+
+      function menu_options($menu=[],$menu_active=0){
+        for ($i=0; $i < count($menu); $i++) { 
+          if($i==$menu_active){
+            echo "<li class='nav-item'>
+            <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+            </li>";
+          }else{
+            echo "<li class='nav-item'>
+            <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
+            </li>";
+          }
+        }
+      }
+
+      function social_media(){
+        echo "<div class='social-facebook fa-2x'>
+          <i class='fab fa-facebook'></i>
+        </div>
+        <div class='social-instagram fa-2x'>
+          <i class='fab fa-instagram'></i>
+        </div>
+        <div class='social-twitter fa-2x'>
+          <i class='fab fa-twitter'></i>
+        </div>
+        <div class='social-whatsapp fa-2x'>
+          <i class='fab fa-whatsapp'></i>
+        </div>";
+      }
     ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -50,18 +79,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <?php 
-              for ($i=0; $i < 4; $i++) { 
-                if($i==2){
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }else{
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }
-                
-              }
+              menu_options($menu,2);
             ?>
             </ul>
           </div>
@@ -151,34 +169,15 @@
         <div class="col-2">
           <ul class="list-unstyled text-small">
             <?php 
-              for ($i=0; $i < 4; $i++) { 
-                if($i==2){
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }else{
-                  echo "<li class='nav-item'>
-                  <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-                  </li>";
-                }
-              }
+              menu_options($menu,2);
             ?>
           </ul>
         </div>
         <div class="col-5">
           <div class="d-flex justify-content-around">
-            <div class="social-facebook fa-2x">
-              <i class="fab fa-facebook"></i>
-            </div>
-            <div class="social-instagram fa-2x">
-              <i class="fab fa-instagram"></i>
-            </div>
-            <div class="social-twitter fa-2x">
-              <i class="fab fa-twitter"></i>
-            </div>
-            <div class="social-whatsapp fa-2x">
-              <i class="fab fa-whatsapp"></i>
-            </div>
+            <?php 
+              social_media();
+            ?>
           </div>          
         </div>
         <div class="col-3">
