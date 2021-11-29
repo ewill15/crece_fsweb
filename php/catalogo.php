@@ -1,138 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php 
-      $titulo = "Catálogo";
-      $menu = array(
-        array("text"=>'Inicio',"page"=>"inicio.php"),
-        array("text"=>'Catálogo',"page"=>"catalogo.php"),
-        array("text"=>'Contacto',"page"=>"contacto.php"),
-        array("text"=>'Servicio',"page"=>"servicio.php")
-      );
-      $catalogo = array(
-        array(
-          "titulo"=>"Cacao",
-          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,tellus ac cursus commodo.",
-          "image"=>"img/cocoa.svg",
-          "alt"=>"cacao"
-        ),
-        array(
-          "titulo"=>"Grageas chocolate",
-          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,tellus ac cursus commodo.",
-          "image"=>"img/grageas.jpeg",
-          "alt"=>"grageas chocolate"
-        ),
-        array(
-          "titulo"=>"Helado chocolate",
-          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus,tellus ac cursus commodo.",
-          "image"=>"img/helado.png",
-          "alt"=>"helado chocolate"
-        ),
-        array(
-          "titulo"=>"Paleta chocolate",
-          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.",
-          "image"=>"img/paleta.png",
-          "alt"=>"paleta chocolate"
-        ),
-        array(
-          "titulo"=>"Tabletas chocolate",
-          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.",
-          "image"=>"img/tabletas.png",
-          "alt"=>"tabletas chocolate"),
-        array(
-          "titulo"=>"Variedad de productos",
-          "descripcion"=>"Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.",
-          "image"=>"img/treats.svg",
-          "alt"=>"varios"
-        )
-      );
-      $btn_detalle = "Ver Detalle";
-      $mostrar_video = false;
-      function image_catalogs($nro_images=1,$imagenes=[],$btn_descarga='Ver Detalle'){
-        for ($i=0; $i < $nro_images ; $i++) {
-          echo "<div class='card my-3'>
-            <img class='card-img-top' src='".$imagenes[$i]['image']."' alt='".$imagenes[$i]['alt']."'>
-            <div class='card-body'>
-              <h5 class='card-title'>".$imagenes[$i]['titulo']."</h5>
-              <p class='card-text'>".$imagenes[$i]['descripcion']."</p>
-              <a href='#' class='btn btn-outline-chocolate d-block text-center'>$btn_descarga</a>
-            </div>
-          </div>";
-        }
-      }
-
-      function menu_options($menu=[],$menu_active=0){
-        for ($i=0; $i < count($menu); $i++) { 
-          if($i==$menu_active){
-            echo "<li class='nav-item'>
-            <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-            </li>";
-          }else{
-            echo "<li class='nav-item'>
-            <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-            </li>";
-          }
-        }
-      }
-
-      function social_media(){
-        echo "<div class='social-facebook fa-2x'>
-          <i class='fab fa-facebook'></i>
-        </div>
-        <div class='social-instagram fa-2x'>
-          <i class='fab fa-instagram'></i>
-        </div>
-        <div class='social-twitter fa-2x'>
-          <i class='fab fa-twitter'></i>
-        </div>
-        <div class='social-whatsapp fa-2x'>
-          <i class='fab fa-whatsapp'></i>
-        </div>";
-      }
+    <?php
+      include_once 'pages/functions.php';
+      $menu_option_setted = menu_options($menu,1);
     ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo $titulo ?></title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link href="css/fontawesome/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
+    <title><?php echo texto('ChocoVal | Contacto') ?></title>
+    <?php
+      include_once 'pages/header.php';
+    ?>
   </head>
 
   <body>
     <!-- opciones de menu -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="col-md-9">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <?php 
-              menu_options($menu,1);
-            ?>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 text-right">
-          <a class="navbar-brand" href="#">
-            <img class="w-25 img-fluid mx-auto" src="img/logo.png" alt="logo" />
-          </a>
-        </div>
-      </div>
+      <?php
+        include_once 'pages/navigation.php'
+      ?>
     </nav>
 
     <!-- Banner del sitio en la página principal -->
@@ -145,7 +32,7 @@
     </div>
     <!-- container -->
     <div class="container main-content py-3">
-      <h1><?php echo $titulo ?></h1>
+      <h1 class="text-center mt-3"><?php echo ucfirst(texto('catálogo')) ?></h1>
       <div id="catalog" class="info">
         <?php if($mostrar_video){ ?>
         <div class="embed-responsive embed-responsive-16by9 text-center">
@@ -155,7 +42,7 @@
         <section id="catalog-b">
           <div class="d-flex flex-row justify-content-around flex-wrap">
             <?php 
-              image_catalogs(count($catalogo),$catalogo);
+              image_catalogs(count($catalogo),$catalogo,'Ver Detalle');
             ?>
           </div>
         </section>
@@ -163,26 +50,9 @@
     </div>
     <!-- Pie -->
     <footer class="container-fluid pt-4 mt-md-5 pt-md-5 border-top bg-light">
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-2">
-          <ul class="list-unstyled text-small">
-            <?php 
-              menu_options($menu,1);
-            ?>
-          </ul>
-        </div>
-        <div class="col-5">
-          <div class="d-flex justify-content-around">
-            <?php 
-              social_media();
-            ?>
-          </div>          
-        </div>
-        <div class="col-3">
-          <img class="mx-auto d-block w-35" src="img/logo.png" alt="logo" />
-        </div>
-      </div>
+      <?php
+        include_once 'pages/footer.php'
+      ?>
     </footer>
     
     <script src="js/bootstrap.js"></script>

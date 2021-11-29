@@ -1,95 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php 
-      $titulo = "Contacto";
-      $seccion1_plural = "Contáctanos";
-      $descripcion = "<p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-        reiciendis iure, asperiores provident modi vero labore at fuga quaerat
-        similique, cumque praesentium saepe. Quaerat alias corporis voluptatem
-        dignissimos atque vel?
-      </p>";
-      $btn_enviar = "Enviar";
-      $menu = array(
-        array("text"=>'Inicio',"page"=>"inicio.php"),
-        array("text"=>'Catálogo',"page"=>"catalogo.php"),
-        array("text"=>'Contacto',"page"=>"contacto.php"),
-        array("text"=>'Servicio',"page"=>"servicio.php")
-      );
-
-      function menu_options($menu=[],$menu_active=0){
-        for ($i=0; $i < count($menu); $i++) { 
-          if($i==$menu_active){
-            echo "<li class='nav-item'>
-            <a class='nav-link w-25 active' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-            </li>";
-          }else{
-            echo "<li class='nav-item'>
-            <a class='nav-link w-25' href='".$menu[$i]['page']."'>".$menu[$i]['text']."</a>
-            </li>";
-          }
-        }
-      }
-
-      function social_media(){
-        echo "<div class='social-facebook fa-2x'>
-          <i class='fab fa-facebook'></i>
-        </div>
-        <div class='social-instagram fa-2x'>
-          <i class='fab fa-instagram'></i>
-        </div>
-        <div class='social-twitter fa-2x'>
-          <i class='fab fa-twitter'></i>
-        </div>
-        <div class='social-whatsapp fa-2x'>
-          <i class='fab fa-whatsapp'></i>
-        </div>";
-      }
+    <?php
+      include_once 'pages/functions.php';
+      $menu_option_setted = menu_options($menu,2);
     ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo $titulo ?></title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link href="css/fontawesome/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
+    <title><?php echo texto('ChocoVal | Contacto') ?></title>
+    <?php
+      include_once 'pages/header.php';
+    ?>
   </head>
 
   <body>
     <!-- opciones de menu -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="col-md-9">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <?php 
-              menu_options($menu,2);
-            ?>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 text-right">
-          <a class="navbar-brand" href="#">
-            <img class="w-25 img-fluid mx-auto" src="img/logo.png" alt="logo" />
-          </a>
-        </div>
-      </div>
+      <?php
+        include_once 'pages/navigation.php';
+      ?>
     </nav>
 
     <!-- Banner del sitio en la página principal -->
@@ -103,11 +33,12 @@
     <!-- Contenido -->
     <div class="container main-content">
       <div id="contact" class="info">
-        <h1 class="text-center mt-3"><?php echo $titulo ?></h1>
-        <?php echo $descripcion?>
+        <h1 class="text-center mt-3"><?php echo ucfirst(texto('contacto')) ?></h1>
+        <?php echo texto($descripcion)?>
         <div class="form-contact">
-          <h3 class="text-center my-5"><?php echo $seccion1_plural ?></h3>
-          <form id="frm-contact" action="#" method="post" autocomplete="off">
+          <h3 class="text-center my-5"><?php echo ucfirst(texto('contacto',true)) ?></h3>
+          <form id="frm-contact" action="form/contact.php" method="post" autocomplete="off">
+            <!-- NOMBRE -->
             <div class="form-group row mb-3">
               <label for="name" class="col-md-4 form-control-label text-right">
                 Nombre
@@ -121,7 +52,21 @@
                 <input type="text" class="form-control" name="name" placeholder="Escribe tu nombre" required aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
-            
+            <!-- APELLIDO -->
+            <div class="form-group row mb-3">
+              <label for="lastname" class="col-md-4 form-control-label text-right">
+                Apellido
+              </label>
+              <div class="input-group mb-3 w-50">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" name="lastname" placeholder="Escribe tu apellido" required aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+            <!-- CORREO -->
             <div class="form-group row mb-3">
               <label for="name" class="col-md-4 form-control-label text-right">
                 Correo Electrónico
@@ -135,8 +80,49 @@
                 <input type="email" class="form-control" name="email" placeholder="Escribe tu correo electrónico" required aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
-
-
+            <!-- TELEFONO -->
+            <div class="form-group row mb-3">
+              <label for="name" class="col-md-4 form-control-label text-right">
+                Teléfono
+              </label>
+              <div class="input-group mb-3 w-50">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-phone"></i>
+                  </span>
+                </div>
+                <input type="number" 
+                  class="form-control" 
+                  name="phone" 
+                  placeholder="Escribe tu número de teléfono" 
+                  aria-describedby="inputGroup-sizing-default"
+                  max="9999999999"
+                  required 
+                >
+              </div>
+            </div>
+            <!-- SELECT CIUDAD-->
+            <div class="form-group row mb-3">
+              <label for="name" class="col-md-4 form-control-label text-right">
+                Ciudad
+              </label>
+              <div class="input-group mb-3 w-50">
+                <select name="ciudad" class="form-control" required>
+                  <option value="" disabled selected>Selecciona tu ciudad</option>
+                  <option value="Cochabamba">Cochabamba</option>
+                  <option value="Sucre">Sucre</option>
+                  <option value="Tarija">Tarija</option>
+                  <option value="Santa Cruz">Santa Cruz</option>
+                  <option value="Beni">Beni</option>
+                  <option value="Pando">Pando</option>
+                  <option value="La Paz">La Paz</option>
+                  <option value="Oruro">Oruro</option>
+                  <option value="Potosi">Potosí</option>
+                  
+                </select>
+              </div>
+            </div>
+            <!-- COMENTARIO -->
             <div class="form-group row mb-3">
               <label for="name" class="col-md-4 form-control-label text-right">
                 Comentario
@@ -147,14 +133,31 @@
                   class="form-control"
                   cols="30"
                   rows="10"
-                  placeholder="Escribe aqui tu comentario"
+                  placeholder="Escribe aqui tu mensaje"
+                  maxlength="200"
+                  required
                 ></textarea>
               </div>
             </div>
+            <!-- SERVICIOS OFRECIDOS-->
+            <div class="form-group row mb-3">
+              <label for="name" class="col-md-4 form-control-label text-right">
+                Servicios
+              </label>
+              <div class="input-group mb-3 w-50">
+                <select name="servicios" class="form-control" multiple required>
+                  <option value="" disabled selected>Seleccionar...</option>
+                  <option value="envio">Formas de envio</option>
+                  <option value="consulta">Consulta</option>
+                  <option value="catalogo_precios">Lista de productos</option>
+                </select>
+              </div>
+            </div>
+            <!-- BTN ENVIAR FORM-->
             <div class="form-group row mb-3">
               <div class="col-md-12 text-center">
                 <button class="btn btn-primary" type="submit">
-                  <?php echo $btn_enviar ?>
+                  <?php echo ucfirst(texto('enviar')) ?>
                 </button>
               </div>
             </div>
@@ -164,26 +167,9 @@
     </div>
     <!-- Pie -->
     <footer class="container-fluid pt-4 mt-md-5 pt-md-5 border-top bg-light">
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-2">
-          <ul class="list-unstyled text-small">
-            <?php 
-              menu_options($menu,2);
-            ?>
-          </ul>
-        </div>
-        <div class="col-5">
-          <div class="d-flex justify-content-around">
-            <?php 
-              social_media();
-            ?>
-          </div>          
-        </div>
-        <div class="col-3">
-          <img class="mx-auto d-block w-35" src="img/logo.png" alt="logo" />
-        </div>
-      </div>
+      <?php
+        include_once 'pages/footer.php'
+      ?>
     </footer>
 
     <script src="js/bootstrap.bundle.js"></script>
