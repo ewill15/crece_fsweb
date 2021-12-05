@@ -20,7 +20,7 @@
       <div class="login-info-box">
         <div class="form-contact">
           <h3 class="text-center my-5">Login</h3>
-          <form id="frm-contact" action="../form/authentication.php" method="post" autocomplete="off">
+          <form name="frmLogin" action="../form/authentication.php" onsubmit = "return validation()" method="post" autocomplete="off">
             <!-- NOMBRE DE USUARIO-->
             <div class="form-group row mb-3">
               <label for="name" class="col-md-4 form-control-label text-right">
@@ -32,7 +32,7 @@
                     <i class="fas fa-user"></i>
                   </span>
                 </div>
-                <input type="text" class="form-control" name="username" placeholder="" required aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" name="username" placeholder="" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
             <!-- PASSWORD -->
@@ -46,7 +46,7 @@
                     <i class="fas fa-key"></i>
                   </span>
                 </div>
-                <input type="password" class="form-control" name="password" required aria-describedby="inputGroup-sizing-default">
+                <input type="password" class="form-control" name="password" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
             <!-- BTN ENVIAR FORM-->
@@ -63,5 +63,27 @@
     </div>
 
     <script src="../js/bootstrap.bundle.js"></script>
+    <script>
+      function validation()  
+        {  
+          var id=document.frmLogin.username.value;  
+          var ps=document.frmLogin.password.value;  
+          if(id.length=="" && ps.length=="") {  
+              alert("Campos de usuario y contraseña vacios");  
+              return false;  
+          }  
+          else  
+          {  
+              if(id.length=="") {  
+                  alert("Nombre de usuario vacio");  
+                  return false;  
+              }   
+              if (ps.length=="") {  
+              alert("Campo contraseña vacio");  
+              return false;  
+              }  
+          }                             
+        }  
+    </script>
   </body>
 </html>

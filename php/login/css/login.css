@@ -7,3 +7,6 @@
     padding: 10px;
     margin-bottom: 20px;
 }
+form[name="frmLogin"] span.input-group-text {
+    height: 38px;
+}
