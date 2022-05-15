@@ -19,6 +19,9 @@ function App() {
       <Router> 
         <Navbar/>
         <Routes>
+          /* las correciones que se hicieron fueron:*/
+          /* 1. cambiar component por element*/
+          /* 2. los componentes  Home,Services Products y SignUp  se colocaron entre < y />*/
           <Route path='/' exact element={<Home/>} />
           <Route path='/services' element={<Services/>} />
           <Route path='/products' element={<Products/>} />
