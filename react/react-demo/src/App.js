@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
+import Testimonies from './components/pages/Testimonies';
 import SignUp from './components/pages/SignUp';
 function App() {
   return (
@@ -19,12 +20,10 @@ function App() {
       <Router> 
         <Navbar/>
         <Routes>
-          /* las correciones que se hicieron fueron:*/
-          /* 1. cambiar component por element*/
-          /* 2. los componentes  Home,Services Products y SignUp  se colocaron entre < y />*/
-          <Route path='/' exact element={<Home/>} />
+          <Route path='/' element={<Home/>} />
           <Route path='/services' element={<Services/>} />
           <Route path='/products' element={<Products/>} />
+          <Route path='/testimonies' element={<Testimonies/>} />
           <Route path='/sign-up' element={<SignUp/>} />
         </Routes>
       </Router>
