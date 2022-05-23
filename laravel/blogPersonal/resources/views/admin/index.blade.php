@@ -9,7 +9,27 @@
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <p><strong>Learning Laravel</strong> <a href="{{ route('admin.edit', ['id' => 1]) }}">Edit</a></p>
+            <p>
+                <strong>Lista de Posts</strong> 
+                <table>
+                    <th>
+                        <tr>Titulo</tr>
+                        <tr>Accion</tr>
+                    </th>
+                    <tbody>
+                        {{$posts}}
+                        @foreach ($posts as $post)
+                        <tr>
+                            <td>{{$post->title}}</td>
+                        </tr>
+                        <tr>
+                            <a href="{{ route('admin.edit', ['id' => $post->id]) }}">Edit</a>
+                        </tr>
+                        @endforeach                        
+                    </tbody>
+                </table>
+                
+            </p>
         </div>
     </div>
 @endsection

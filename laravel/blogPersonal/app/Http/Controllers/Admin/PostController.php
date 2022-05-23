@@ -51,10 +51,8 @@ class PostController extends Controller
     }
     public function getAdministrador()
     {
-        $post = new Post();
-        $posts = $post->getPost($session);
-
-        return view('admin.index',['posts'=>$posts]);
+        $posts = Post::all();
+        return view('admin.index',compact('posts'));
     }
 
     public function getAdminEdit($id)

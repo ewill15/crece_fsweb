@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('about', function () {
 })->name('other.about');
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('', function () {
+    Route::get('index', function () {
         return view('admin.index');
     })->name('admin.index');
 
